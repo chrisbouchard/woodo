@@ -1,6 +1,6 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-if (( $EUID != 0 ))
+if [[ "$EUID" != 0 ]]
 then
     # Non-root
     echo "It's a weird tree."
