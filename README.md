@@ -24,3 +24,5 @@ Password:
   \___/
 ```
 
+That's about it. Thank [/r/linux](https://www.reddit.com/r/linux/comments/1yy1c4/sudo_woodo/) for the inspiration. I wrote it as a shell script because I don't like running arbitrary C code as root.
+
