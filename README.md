@@ -7,7 +7,7 @@ This project is best illustrated by an example:
 % woodo
 It's a weird tree.
 % sudo woodo
-Password:
+Password:••••••••
     _              __
    / `\  (~._    ./  )
    \__/ __`-_\__/ ./
