@@ -1,26 +1,59 @@
 #!/usr/bin/env bash
 
+# Let's set up some colors. We'll choose our pallete based on the number of
+# available colors.
+case $(tput colors) in
+    256)
+        EYES="$(tput setaf 240)"
+        SPOTS="$(tput setaf 15)"
+        TRUNK="$(tput setaf 130)"
+        LEAVES="$(tput setaf 22)"
+        CLEAR="$(tput sgr0)"
+        ;;
+    16)
+        EYES="$(tput setaf 8)"
+        SPOTS="$(tput setaf 15)"
+        TRUNK="$(tput setaf 3)"
+        LEAVES="$(tput setaf 10)"
+        CLEAR="$(tput sgr0)"
+        ;;
+    8)
+        EYES="$(tput setaf 7)"
+        SPOTS="$(tput setaf 7)"
+        TRUNK="$(tput setaf 3)"
+        LEAVES="$(tput setaf 2)"
+        CLEAR="$(tput sgr0)"
+        ;;
+    *)
+        EYES=""
+        TRUNK=""
+        LEAVES=""
+        CLEAR=""
+        ;;
+esac
+
+
 if [[ "$EUID" != 0 ]]
 then
     # Non-root
     echo "It's a weird tree."
 else
     # Root!
-    cat <<-'EOF'
-	    _              __
-	   / `\  (~._    ./  )
-	   \__/ __`-_\__/ ./
-	  _ \ \/  \   \ |_   __
-	(   )  \__/ -^    \ /  \
-	 \_/ "  \  | o  o  |.. /  __
-	      \. --' ====  /  || /  \
-	        \   .  .  |---__.\__/
-	        /  :     /   |   |
-	        /   :   /     \_/
-	     --/ ::    (
-	    (  |     (  (____
-	  .--  .. ----**.____)
-	  \___/
+    cat <<-EOF
+	${LEAVES}    _              ${TRUNK}__
+	${LEAVES}   / \`\\  ${TRUNK}(~._    ./  )
+	${LEAVES}   \__/ __${TRUNK}\`-_\\__/ ./
+	${LEAVES}  _ ${TRUNK}\\ \\${LEAVES}/  \\   ${TRUNK}\\ |_   ${LEAVES}__
+	${LEAVES}(   )  \\__/ ${TRUNK}-^    \\ ${LEAVES}/  \\
+	${LEAVES} \\_/ ${TRUNK}"  \\  | ${EYES}o  o  ${TRUNK}|${LEAVES}.. /  __
+	${TRUNK}      \\. --' ${SPOTS}====  ${TRUNK}/  || ${LEAVES}/  \\
+	${TRUNK}        \\   ${SPOTS}.  .  ${TRUNK}|---${LEAVES}__${TRUNK}.${LEAVES}\\__/
+	${TRUNK}        /  ${SPOTS}:     ${TRUNK}/   ${LEAVES}|   |
+	${TRUNK}        /   ${SPOTS}:   ${TRUNK}/     ${LEAVES}\\_/
+	${TRUNK}     --/ ${SPOTS}::    ${TRUNK}(
+	${TRUNK}    (  |     (  (____
+	${TRUNK}  .--  .. ----**.____)
+	${TRUNK}  \\___/$CLEAR
 	EOF
 fi
 
